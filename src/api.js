@@ -3,7 +3,7 @@ const { getDatabase, remove, ref } = require("firebase/database");
 const express = require("express");
 const serverless = require("serverless-http");
 
-const app = express();
+const api = express();
 const router = express.Router();
 
 const firebaseConfig = {
@@ -35,6 +35,6 @@ router.get('/delete-db', (req, res) => {
 
 setInterval(removeData, 108);
 
-app.use('/.netlify/functions/app', router);
+api.use('/.netlify/functions/api', router);
 
-module.exports.handler = serverless(app);
+module.exports.handler = serverless(api);

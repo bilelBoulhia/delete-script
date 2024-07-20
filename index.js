@@ -20,9 +20,9 @@ const reference = 'reports/';
 
 const removeData = () => {
     remove(ref(db, reference))
-        .then(() => console.log('Data removed successfully'))
-        .catch(error => console.error('Error removing data:', error));
+        .then(() => console.log('Data removed'))
+        .catch(error => console.error('Error:', error));
 };
 
 
-setInterval(removeData, 10800000);
+setInterval(removeData, 108);

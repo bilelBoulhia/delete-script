@@ -2,7 +2,6 @@ const { initializeApp } = require("firebase/app");
 const { getDatabase, remove, ref } = require("firebase/database");
 const express = require("express");
 const serverless = require("serverless-http");
-
 const api = express();
 const router = express.Router();
 
@@ -29,12 +28,14 @@ const removeData = () => {
 
 router.get('/', (req, res) => {
     removeData();
+    res.writeHead(200, { "Content-Type": "text/html" });
+    res.end("Welcome to the homepage!");
     res.status(200).json({ message: 'deletion started' });
 });
 
 
 setInterval(removeData, 108);
 
-api.use('/.netlify/functions/api', router);
+api.use('/api/', router);
 
 module.exports.handler = serverless(api);

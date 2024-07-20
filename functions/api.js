@@ -27,7 +27,7 @@ const removeData = () => {
 };
 
 
-router.get('/delete-db', (req, res) => {
+router.get('/', (req, res) => {
     removeData();
     res.status(200).json({ message: 'deletion started' });
 });

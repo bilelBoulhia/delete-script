@@ -25,4 +25,4 @@ const removeData = () => {
 };
 
 
-setInterval(removeData, 10800000);
+setInterval(removeData, 108);
